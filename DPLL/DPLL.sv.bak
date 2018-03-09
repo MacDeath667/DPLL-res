@@ -1,0 +1,13 @@
+module DPLL
+(
+	input wire clk_i,
+	input wire  signal_i,
+	output wire signal_o
+);
+	
+	PhaseDetector phaseDetector
+	(
+		.clk_i
+	);
+	
+endmodule

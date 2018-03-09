@@ -1,0 +1,258 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Documents/Projects FPGA/DPLL
+vDPLL
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1517510563
+!i10b 1
+!s100 `Ui_FRManCelGci31=C<e2
+IVVkXSJ3ZOMoPP_`n`9jIU1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 DPLL_sv_unit
+S1
+R0
+w1513629393
+8./DPLL.sv
+F./DPLL.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1517510563.000000
+!s107 ./DPLL.sv|
+!s90 -reportprogress|300|-sv|./DPLL.sv|
+!i113 1
+o-sv
+Z6 tCvgOpt 0
+n@d@p@l@l
+vFreqDivider
+R1
+R2
+!i10b 1
+!s100 W2Y@;NiUGl]b=@CO`HzKX0
+IUV5`AKa=aG8[aBYgNcAB20
+R3
+!s105 FreqDivider_sv_unit
+S1
+R0
+w1513628101
+8./FreqDivider.sv
+F./FreqDivider.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./FreqDivider.sv|
+!s90 -reportprogress|300|-sv|./FreqDivider.sv|
+!i113 1
+o-sv
+R6
+n@freq@divider
+vKGB
+R1
+R2
+!i10b 1
+!s100 2z0n:i;8VmXeQ6zCdUOMC0
+IC18B5U0anhd?OWZH`9T4V0
+R3
+!s105 KGB_sv_unit
+S1
+R0
+w1513626688
+8./KGB.sv
+F./KGB.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./KGB.sv|
+!s90 -reportprogress|300|-sv|./KGB.sv|
+!i113 1
+o-sv
+R6
+n@k@g@b
+vPhaseController
+R1
+R2
+!i10b 1
+!s100 5VCcWK:cHI^<QNTD6@d^W1
+InL?KW[Y5dNU5J4_Sga53c0
+R3
+!s105 PhaseController_sv_unit
+S1
+R0
+w1513629384
+8./PhaseController.sv
+F./PhaseController.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./PhaseController.sv|
+!s90 -reportprogress|300|-sv|./PhaseController.sv|
+!i113 1
+o-sv
+R6
+n@phase@controller
+vPhaseDetector
+R1
+R2
+!i10b 1
+!s100 iJj6;H38kcn7jP<_?OmH]3
+IiTf3gLoobKk7]cLh7X6U;0
+R3
+!s105 PhaseDetector_sv_unit
+S1
+R0
+w1513625526
+8./PhaseDetector.sv
+F./PhaseDetector.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./PhaseDetector.sv|
+!s90 -reportprogress|300|-sv|./PhaseDetector.sv|
+!i113 1
+o-sv
+R6
+n@phase@detector
+vReversiveCounter
+R1
+!s110 1517510562
+!i10b 1
+!s100 lNYQjdJBA[_`?H3WO>XlR2
+I[hB4j8a2oAf<KOh0DjQEC1
+R3
+!s105 ReversiveCounter_sv_unit
+S1
+R0
+w1512416203
+8./ReversiveCounter.sv
+F./ReversiveCounter.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1517510562.000000
+!s107 ./ReversiveCounter.sv|
+!s90 -reportprogress|300|-sv|./ReversiveCounter.sv|
+!i113 1
+o-sv
+R6
+n@reversive@counter
+vSerialLoopFilter
+R1
+R2
+!i10b 1
+!s100 Q<4=4ShiWQX[>c;nZ4KA90
+IB6CMZWB5L2iW9l<0mKFRM3
+R3
+!s105 SerialLoopFilter_sv_unit
+S1
+R0
+w1512487066
+8./SerialLoopFilter.sv
+F./SerialLoopFilter.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./SerialLoopFilter.sv|
+!s90 -reportprogress|300|-sv|./SerialLoopFilter.sv|
+!i113 1
+o-sv
+R6
+n@serial@loop@filter
+vtb
+R1
+!s110 1517510564
+!i10b 1
+!s100 <00CACnII@dkMFAMg1hEd2
+IVZjHH;0z0mJggI=oA:@C^2
+R3
+!s105 tb_sv_unit
+S1
+R0
+w1513629250
+8./tb.sv
+F./tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1517510564.000000
+!s107 ./tb.sv|
+!s90 -reportprogress|300|-sv|./tb.sv|
+!i113 1
+o-sv
+R6
+vtop
+R1
+R2
+!i10b 1
+!s100 X_7hbhLeLXMY0DC;W`iX40
+IU@_odHzV3zn@c@5c^1Tok0
+R3
+!s105 top_sv_unit
+S1
+R0
+w1512485935
+8./top.sv
+F./top.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 ./top.sv|
+!s90 -reportprogress|300|-sv|./top.sv|
+!i113 1
+o-sv
+R6
+vVCCD
+R1
+!s110 1512672178
+!i10b 1
+!s100 8UEeRMFf75e<ncQ`JodSX2
+I97J>967fG2ZMQ>8W3_AzQ3
+R3
+!s105 VCCD_sv_unit
+S1
+R0
+w1512672153
+8./VCCD.sv
+F./VCCD.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1512672178.000000
+!s107 ./VCCD.sv|
+!s90 -reportprogress|300|-sv|./VCCD.sv|
+!i113 1
+o-sv
+R6
+n@v@c@c@d

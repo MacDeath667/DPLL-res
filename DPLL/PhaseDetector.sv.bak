@@ -1,0 +1,15 @@
+module PhaseDetector
+(
+	input wire clk_i,
+	input wire signalA_i,
+	input wire signalB_i,
+	output reg forwarding_o,
+	output reg slowing_o
+);
+	
+	PhaseDetector phaseDetector
+	(
+		.clk_i
+	);
+	
+endmodule

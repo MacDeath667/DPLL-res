@@ -1,0 +1,26 @@
+module ReversiveCounter
+(
+	input wire reset_i,
+	input wire clk_i,
+	input wire countDown_i,
+	output wire [7:0] value_o
+);
+
+	reg [7:0] value;
+	
+	always_ff @(posedge clk_i or negedge reset_i)
+	begin
+	
+		if (!reset_i)
+			value <= '0;
+		else if (clk_i)
+		begin
+			
+			if (countDown_i)
+				value <= value - 8'b1;
+			else
+				value <= value + 8'b1;
+		end
+	end
+
+endmodule

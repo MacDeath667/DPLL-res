@@ -1,0 +1,339 @@
+|top
+reset_i => DPLL:dpll.reset_i
+clk_i => DPLL:dpll.clk_i
+signal_i => DPLL:dpll.signal_i
+signal_o << DPLL:dpll.signal_o
+
+
+|top|DPLL:dpll
+reset_i => reset_i.IN4
+clk_i => clk_i.IN4
+signal_i => signal_i.IN1
+signal_o <= signalB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|PhaseDetector:detector
+reset_i => slowing_o~reg0.ACLR
+reset_i => forwarding_o~reg0.ACLR
+clk_i => slowing_o~reg0.CLK
+clk_i => forwarding_o~reg0.CLK
+signalA_i => isInputDifferent.IN0
+signalA_i => slowing_o.IN1
+signalB_i => isInputDifferent.IN1
+signalB_i => forwarding_o.IN1
+forwarding_o <= forwarding_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+slowing_o <= slowing_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|SerialLoopFilter:filter
+reset_i => reset_i.IN1
+clk_i => clk_i.IN1
+forwarding_i => forwarding_i.IN1
+slowing_i => slowing_i.IN1
+positiveShift_o <= KGB:kgbN.triggeredMax_o
+negativeShift_o <= KGB:kgbN.triggeredMin_o
+
+
+|top|DPLL:dpll|SerialLoopFilter:filter|KGB:kgbM
+reset_i => reset_i.IN1
+clk_i => clk_i.IN1
+increment_i => increment_i.IN1
+decrement_i => decrement_i.IN1
+initialValue_i[0] => initialValue_i[0].IN1
+initialValue_i[1] => initialValue_i[1].IN1
+initialValue_i[2] => initialValue_i[2].IN1
+initialValue_i[3] => initialValue_i[3].IN1
+initialValue_i[4] => initialValue_i[4].IN1
+initialValue_i[5] => initialValue_i[5].IN1
+initialValue_i[6] => initialValue_i[6].IN1
+initialValue_i[7] => initialValue_i[7].IN1
+triggeredMax_o <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+triggeredMin_o <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|SerialLoopFilter:filter|KGB:kgbM|ReversiveCounter:reversiveCounter
+reset_i => value[0].ACLR
+reset_i => value[1].ACLR
+reset_i => value[2].ACLR
+reset_i => value[3].ACLR
+reset_i => value[4].ACLR
+reset_i => value[5].ACLR
+reset_i => value[6].ACLR
+reset_i => value[7].ACLR
+clk_i => value[0].CLK
+clk_i => value[1].CLK
+clk_i => value[2].CLK
+clk_i => value[3].CLK
+clk_i => value[4].CLK
+clk_i => value[5].CLK
+clk_i => value[6].CLK
+clk_i => value[7].CLK
+increment_i => always0.IN0
+increment_i => always0.IN0
+decrement_i => always0.IN1
+decrement_i => always0.IN1
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadingValue_i[0] => value.DATAB
+loadingValue_i[1] => value.DATAB
+loadingValue_i[2] => value.DATAB
+loadingValue_i[3] => value.DATAB
+loadingValue_i[4] => value.DATAB
+loadingValue_i[5] => value.DATAB
+loadingValue_i[6] => value.DATAB
+loadingValue_i[7] => value.DATAB
+value_o[0] <= value[0].DB_MAX_OUTPUT_PORT_TYPE
+value_o[1] <= value[1].DB_MAX_OUTPUT_PORT_TYPE
+value_o[2] <= value[2].DB_MAX_OUTPUT_PORT_TYPE
+value_o[3] <= value[3].DB_MAX_OUTPUT_PORT_TYPE
+value_o[4] <= value[4].DB_MAX_OUTPUT_PORT_TYPE
+value_o[5] <= value[5].DB_MAX_OUTPUT_PORT_TYPE
+value_o[6] <= value[6].DB_MAX_OUTPUT_PORT_TYPE
+value_o[7] <= value[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|SerialLoopFilter:filter|ReversiveCounter:resetCounter
+reset_i => value[0].ACLR
+reset_i => value[1].ACLR
+reset_i => value[2].ACLR
+reset_i => value[3].ACLR
+reset_i => value[4].ACLR
+reset_i => value[5].ACLR
+reset_i => value[6].ACLR
+reset_i => value[7].ACLR
+clk_i => value[0].CLK
+clk_i => value[1].CLK
+clk_i => value[2].CLK
+clk_i => value[3].CLK
+clk_i => value[4].CLK
+clk_i => value[5].CLK
+clk_i => value[6].CLK
+clk_i => value[7].CLK
+increment_i => always0.IN0
+increment_i => always0.IN0
+decrement_i => always0.IN1
+decrement_i => always0.IN1
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadingValue_i[0] => value.DATAB
+loadingValue_i[1] => value.DATAB
+loadingValue_i[2] => value.DATAB
+loadingValue_i[3] => value.DATAB
+loadingValue_i[4] => value.DATAB
+loadingValue_i[5] => value.DATAB
+loadingValue_i[6] => value.DATAB
+loadingValue_i[7] => value.DATAB
+value_o[0] <= value[0].DB_MAX_OUTPUT_PORT_TYPE
+value_o[1] <= value[1].DB_MAX_OUTPUT_PORT_TYPE
+value_o[2] <= value[2].DB_MAX_OUTPUT_PORT_TYPE
+value_o[3] <= value[3].DB_MAX_OUTPUT_PORT_TYPE
+value_o[4] <= value[4].DB_MAX_OUTPUT_PORT_TYPE
+value_o[5] <= value[5].DB_MAX_OUTPUT_PORT_TYPE
+value_o[6] <= value[6].DB_MAX_OUTPUT_PORT_TYPE
+value_o[7] <= value[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|SerialLoopFilter:filter|KGB:kgbN
+reset_i => reset_i.IN1
+clk_i => clk_i.IN1
+increment_i => increment_i.IN1
+decrement_i => decrement_i.IN1
+initialValue_i[0] => initialValue_i[0].IN1
+initialValue_i[1] => initialValue_i[1].IN1
+initialValue_i[2] => initialValue_i[2].IN1
+initialValue_i[3] => initialValue_i[3].IN1
+initialValue_i[4] => initialValue_i[4].IN1
+initialValue_i[5] => initialValue_i[5].IN1
+initialValue_i[6] => initialValue_i[6].IN1
+initialValue_i[7] => initialValue_i[7].IN1
+triggeredMax_o <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+triggeredMin_o <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|SerialLoopFilter:filter|KGB:kgbN|ReversiveCounter:reversiveCounter
+reset_i => value[0].ACLR
+reset_i => value[1].ACLR
+reset_i => value[2].ACLR
+reset_i => value[3].ACLR
+reset_i => value[4].ACLR
+reset_i => value[5].ACLR
+reset_i => value[6].ACLR
+reset_i => value[7].ACLR
+clk_i => value[0].CLK
+clk_i => value[1].CLK
+clk_i => value[2].CLK
+clk_i => value[3].CLK
+clk_i => value[4].CLK
+clk_i => value[5].CLK
+clk_i => value[6].CLK
+clk_i => value[7].CLK
+increment_i => always0.IN0
+increment_i => always0.IN0
+decrement_i => always0.IN1
+decrement_i => always0.IN1
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadingValue_i[0] => value.DATAB
+loadingValue_i[1] => value.DATAB
+loadingValue_i[2] => value.DATAB
+loadingValue_i[3] => value.DATAB
+loadingValue_i[4] => value.DATAB
+loadingValue_i[5] => value.DATAB
+loadingValue_i[6] => value.DATAB
+loadingValue_i[7] => value.DATAB
+value_o[0] <= value[0].DB_MAX_OUTPUT_PORT_TYPE
+value_o[1] <= value[1].DB_MAX_OUTPUT_PORT_TYPE
+value_o[2] <= value[2].DB_MAX_OUTPUT_PORT_TYPE
+value_o[3] <= value[3].DB_MAX_OUTPUT_PORT_TYPE
+value_o[4] <= value[4].DB_MAX_OUTPUT_PORT_TYPE
+value_o[5] <= value[5].DB_MAX_OUTPUT_PORT_TYPE
+value_o[6] <= value[6].DB_MAX_OUTPUT_PORT_TYPE
+value_o[7] <= value[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|PhaseController:phaseController
+reset_i => ReversiveCounter:resetCounter.reset_i
+reset_i => loadingValue[0].ACLR
+reset_i => loadingValue[1].ACLR
+reset_i => loadingValue[2].ACLR
+reset_i => loadingValue[3].ACLR
+reset_i => loadingValue[4].ACLR
+reset_i => loadingValue[5].ACLR
+reset_i => loadingValue[6].ACLR
+reset_i => loadingValue[7].ACLR
+reset_i => phasedSignal_o~reg0.ACLR
+clk_i => ReversiveCounter:resetCounter.clk_i
+clk_i => loadingValue[0].CLK
+clk_i => loadingValue[1].CLK
+clk_i => loadingValue[2].CLK
+clk_i => loadingValue[3].CLK
+clk_i => loadingValue[4].CLK
+clk_i => loadingValue[5].CLK
+clk_i => loadingValue[6].CLK
+clk_i => loadingValue[7].CLK
+clk_i => phasedSignal_o~reg0.CLK
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+positiveShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+negativeShift_i => loadingValue.OUTPUTSELECT
+phasedSignal_o <= phasedSignal_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|PhaseController:phaseController|ReversiveCounter:resetCounter
+reset_i => value[0].ACLR
+reset_i => value[1].ACLR
+reset_i => value[2].ACLR
+reset_i => value[3].ACLR
+reset_i => value[4].ACLR
+reset_i => value[5].ACLR
+reset_i => value[6].ACLR
+reset_i => value[7].ACLR
+clk_i => value[0].CLK
+clk_i => value[1].CLK
+clk_i => value[2].CLK
+clk_i => value[3].CLK
+clk_i => value[4].CLK
+clk_i => value[5].CLK
+clk_i => value[6].CLK
+clk_i => value[7].CLK
+increment_i => always0.IN0
+increment_i => always0.IN0
+decrement_i => always0.IN1
+decrement_i => always0.IN1
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadNewValue_i => value.OUTPUTSELECT
+loadingValue_i[0] => value.DATAB
+loadingValue_i[1] => value.DATAB
+loadingValue_i[2] => value.DATAB
+loadingValue_i[3] => value.DATAB
+loadingValue_i[4] => value.DATAB
+loadingValue_i[5] => value.DATAB
+loadingValue_i[6] => value.DATAB
+loadingValue_i[7] => value.DATAB
+value_o[0] <= value[0].DB_MAX_OUTPUT_PORT_TYPE
+value_o[1] <= value[1].DB_MAX_OUTPUT_PORT_TYPE
+value_o[2] <= value[2].DB_MAX_OUTPUT_PORT_TYPE
+value_o[3] <= value[3].DB_MAX_OUTPUT_PORT_TYPE
+value_o[4] <= value[4].DB_MAX_OUTPUT_PORT_TYPE
+value_o[5] <= value[5].DB_MAX_OUTPUT_PORT_TYPE
+value_o[6] <= value[6].DB_MAX_OUTPUT_PORT_TYPE
+value_o[7] <= value[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|DPLL:dpll|FreqDivider:divider
+reset_i => counter[0].ACLR
+reset_i => counter[1].ACLR
+reset_i => counter[2].ACLR
+reset_i => counter[3].ACLR
+reset_i => counter[4].ACLR
+reset_i => counter[5].ACLR
+reset_i => counter[6].ACLR
+reset_i => counter[7].ACLR
+reset_i => divided.ACLR
+clk_i => counter[0].CLK
+clk_i => counter[1].CLK
+clk_i => counter[2].CLK
+clk_i => counter[3].CLK
+clk_i => counter[4].CLK
+clk_i => counter[5].CLK
+clk_i => counter[6].CLK
+clk_i => counter[7].CLK
+clk_i => divided.CLK
+input_i => divided_o.DATAB
+bypass_i => divided_o.OUTPUTSELECT
+bypass_i => counter[0].ENA
+bypass_i => divided.ENA
+bypass_i => counter[7].ENA
+bypass_i => counter[6].ENA
+bypass_i => counter[5].ENA
+bypass_i => counter[4].ENA
+bypass_i => counter[3].ENA
+bypass_i => counter[2].ENA
+bypass_i => counter[1].ENA
+divFactor_i[0] => Add0.IN16
+divFactor_i[1] => Add0.IN15
+divFactor_i[2] => Add0.IN14
+divFactor_i[3] => Add0.IN13
+divFactor_i[4] => Add0.IN12
+divFactor_i[5] => Add0.IN11
+divFactor_i[6] => Add0.IN10
+divFactor_i[7] => Add0.IN9
+divided_o <= divided_o.DB_MAX_OUTPUT_PORT_TYPE
+
+

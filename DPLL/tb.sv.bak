@@ -1,0 +1,28 @@
+module tb;
+
+	wire reset_i;
+	wire clk_i;
+	wire  signal_i;
+	wire signal_o;
+	
+	initial
+	begin
+		reset_i = '0;
+		clk_i = '0;
+		signal_i = '0;
+		
+		#43ns;
+		reset_i = '1;
+	end
+	
+	top top_implementation(.*);
+	
+	always
+	begin
+		#50ns;
+		clk_i <= !clk_i;
+	end
+	
+	
+
+endmodule

@@ -1,0 +1,9 @@
+module PhaseController
+(
+	input wire clk_i,
+	input wire negativeShift_i,
+	input wire positiveShift_i,
+	output reg phasedSignal_o
+);
+
+endmodule

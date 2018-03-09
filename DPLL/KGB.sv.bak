@@ -1,0 +1,13 @@
+module KGB
+(
+	input wire reset_i,
+	input wire clk_i,
+	input wire increment_i,
+	input wire decrement_i,
+	output reg triggeredMax_o,
+	output reg triggeredMin_o
+);
+
+	
+
+endmodule

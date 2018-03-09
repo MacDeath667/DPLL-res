@@ -1,0 +1,11 @@
+module SerialLoopFilter
+(
+	input wire clk_i,
+	input wire forwarding_i,
+	input wire slowing_i,
+	output reg negativeShift_o,
+	output reg positiveShift_o
+);
+
+endmodule
+
